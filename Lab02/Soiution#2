@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+float r, sqArea, crArea;
+int area;
+float PI = 3.14190;
+
+cin >> r;
+
+sqArea = (2.0 * r) * (2.0 * r);
+crArea = PI * r * r;
+area = sqArea - crArea;
+
+cout << "Area: " << area << endl;
+   
+return 0;
+}
