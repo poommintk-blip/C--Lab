@@ -1,36 +1,39 @@
 #include <iostream>
-#include <string>
-#include <cctype>
 using namespace std;
 
-int isValidID (string id);
-
-int main() {
-    string id[3];
-    for(int i = 0; i < 3; i++){
-        cin >> id[i];
-        if (isValidID(id[i])) {
-            cout << "Valid" << endl;
-        } else {
-            cout << "Invalid" << endl;
-        }
-    }
-    return 0;
-}
-
-int isValidID(string id){
-    if(id.length() != 8)
-
-    return 0;
-
-char firstChar = id[0];
-    if(!isalpha(firstChar) || !isupper(firstChar))
+int isValidID(string id) {
+   if (id.length() != 8) {
         return 0;
+    }
+    
+     if(tolower(id[0]) != 'b' && tolower(id[0]) != 'm') {
 
-    for(int i = 1; i < 8; i++){
-        if(!isdigit(id[i]))
-            return 0;
+        return 0;
+    }
+    if(((((id[1] - '0') *49) + 
+        ((id[2] - '0') *7) + 
+        ((id[3] - '0') *49) + 
+        ((id[4] - '0') *7) + 
+        ((id[5] - '0') *49) + 
+        ((id[6] - '0') *7))) %10 != (id[7] - '0')) {
+       
+        return 0;
     }
 
     return 1;
+}
+
+int main() {
+    string id[3];
+    for (int i = 0; i < 3; i++) {
+        cin >> id[i];
+
+        if (isValidID(id[i])) {
+            cout << "valid" << endl;
+        } else {
+            cout << "invalid" << endl;
+        }
+    }
+
+    return 0;
 }
