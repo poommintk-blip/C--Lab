@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     int n, x, i;
     int sum = 0;
-    int max= 0;
+    int max = 0;
     
     cin >> n;
 
